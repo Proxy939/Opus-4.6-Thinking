@@ -190,6 +190,7 @@ Strategic/architecture/coding tasks
 User explicitly requests deep reasoning
 
 Otherwise use STANDARD.
+((**Dont forget to add adaptive activation controller**))
 
 2️⃣ Add Early Exit Optimization
 If:
@@ -205,4 +206,5 @@ If task_type = "general_reasoning"
 → Disable full strategic scenario modeling
 → Reduce hypothesis count to 3
 → Disable causal graph generation unless required
+
 
