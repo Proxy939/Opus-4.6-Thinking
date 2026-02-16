@@ -172,3 +172,37 @@ You can tweak the JSON to fit your needs:
 *   **Complexity:** Simple queries ("What is 2+2?") might trigger an over-engineered analysis unless the `Decomposer` correctly identifies it as trivial (Complexity < 0.2).
 
 > **Pro Tip:** Keep the `emergency_pipeline` (referenced in `execution_pipeline`) in mind. If your context window is low, the system is designed to degrade gracefully to a simpler reasoning mode.
+
+## What You Should Do Next (**Very Important**)
+
+1️⃣ Add Adaptive Mode Selector
+
+Create 3 cognitive modes:
+
+LIGHT_MODE
+STANDARD_MODE
+DEEP_MODE
+
+Activate DEEP_HORIZON only when:
+Complexity > 0.6
+High-stakes decision
+Strategic/architecture/coding tasks
+User explicitly requests deep reasoning
+
+Otherwise use STANDARD.
+
+2️⃣ Add Early Exit Optimization
+If:
+Adversarial novelty rate < 0.2
+Confidence delta per recursion < 0.03
+No new insights gained
+Exit recursion early.
+
+3️⃣ Add Complexity-Based Primitive Activation
+Example:
+If task_type = "general_reasoning"
+→ Disable architecture_first_design_mode
+→ Disable full strategic scenario modeling
+→ Reduce hypothesis count to 3
+→ Disable causal graph generation unless required
+
